@@ -11,6 +11,18 @@ Summary: Test your project's packaging friendliness
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyroma-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pyroma-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyroma-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyroma-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pyroma-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pyroma-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyroma/badges/version.svg)](https://anaconda.org/conda-forge/pyroma)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyroma/badges/downloads.svg)](https://anaconda.org/conda-forge/pyroma)
+
 Installing pyroma
 =================
 
@@ -66,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyroma-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pyroma-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyroma-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyroma-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pyroma-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pyroma-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyroma/badges/version.svg)](https://anaconda.org/conda-forge/pyroma)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyroma/badges/downloads.svg)](https://anaconda.org/conda-forge/pyroma)
 
 
 Updating pyroma-feedstock
