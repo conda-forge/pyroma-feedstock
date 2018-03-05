@@ -1,6 +1,6 @@
 {% set name = "pyroma" %}
-{% set version = "2.0.2" %}
-{% set sha256 = "281da392738e5eafaa81fc7a9f0a29cb5c1dccc1e0cae87278300c54f54608d6" %}
+{% set version = "2.3" %}
+{% set sha256 = "fd00280a737f99094aed0b9d6b52456f53ca28803a7c5fb05055a6a071ae9659" %}
 
 package:
   name: {{ name|lower }}
