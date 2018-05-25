@@ -14,14 +14,16 @@ Summary: Test your project's packaging friendliness
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyroma-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pyroma-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyroma-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyroma-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pyroma-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pyroma-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/pyroma-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/pyroma-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/pyroma-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/pyroma-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/pyroma-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/pyroma-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyroma/badges/version.svg)](https://anaconda.org/conda-forge/pyroma)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pyroma/badges/downloads.svg)](https://anaconda.org/conda-forge/pyroma)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pyroma-green.svg)](https://anaconda.org/conda-forge/pyroma) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pyroma.svg)](https://anaconda.org/conda-forge/pyroma) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyroma.svg)](https://anaconda.org/conda-forge/pyroma) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyroma.svg)](https://anaconda.org/conda-forge/pyroma) |
 
 Installing pyroma
 =================
