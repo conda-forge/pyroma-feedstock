@@ -7,14 +7,14 @@ package:
   version: {{ version }}
 
 source:
-  {% set pypi_name = name.replace("_", "-") %}
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
   preserve_egg_dir: True
   entry_points:
     - pyroma = pyroma:main
@@ -22,7 +22,7 @@ build:
 requirements:
   build:
     - python
-    - setuptools
+    - pip
 
   run:
     - python
