@@ -1,6 +1,6 @@
 {% set name = "pyroma" %}
-{% set version = "2.4" %}
-{% set sha256 = "94a11cb077976bff9bd37ac8b487902556f216c4ee90b74a2344367f73b6ee7f" %}
+{% set version = "2.6" %}
+{% set sha256 = "c49c00377219626bf83df42adf018cc231e6162b68cc7aaf2ff1c63803924102" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   preserve_egg_dir: True
   entry_points:
     - pyroma = pyroma:main
