@@ -1,6 +1,6 @@
 {% set name = "pyroma" %}
-{% set version = "2.4" %}
-{% set sha256 = "94a11cb077976bff9bd37ac8b487902556f216c4ee90b74a2344367f73b6ee7f" %}
+{% set version = "3.0.1" %}
+{% set sha256 = "7c3dd0ee8980626b683a70491694c7a35b4952f2ed8c19e6f09eb96fdb74bae5" %}
 
 package:
   name: {{ name|lower }}
@@ -14,13 +14,13 @@ source:
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
-  preserve_egg_dir: True
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  preserve_egg_dir: true
   entry_points:
     - pyroma = pyroma:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
 
@@ -40,7 +40,7 @@ about:
   home: https://bitbucket.org/regebro/pyroma
   license: MIT
   license_file: LICENSE.txt
-  summary: "Test your project's packaging friendliness"
+  summary: Test your project's packaging friendliness
 
 extra:
   recipe-maintainers:
