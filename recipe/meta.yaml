@@ -1,4 +1,6 @@
 {% set name = "pyroma" %}
+{% set import = "pyroma" %}
+{% set entrypoint = "pyroma" %}
 {% set version = "2.4" %}
 {% set sha256 = "94a11cb077976bff9bd37ac8b487902556f216c4ee90b74a2344367f73b6ee7f" %}
 
@@ -7,17 +9,16 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
-  preserve_egg_dir: True
+  script: {{ PYTHON }} -m pip install . -vv
+  preserve_egg_dir: True  # Possibly required due to legacy Setuptools usage?
   entry_points:
-    - pyroma = pyroma:main
+    - {{ entrypoint }} = {{ import }}:main
 
 requirements:
   build:
@@ -31,10 +32,10 @@ requirements:
 
 test:
   imports:
-    - pyroma
+    - {{ import }}
 
   commands:
-    - pyroma --help
+    - {{ entrypoint }} --help
 
 about:
   home: https://bitbucket.org/regebro/pyroma
