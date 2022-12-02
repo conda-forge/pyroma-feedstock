@@ -37,7 +37,12 @@ requirements:
 test:
   requires:
     - pip
+    - pytest
     - setuptools >=60
+
+  source_files:
+    # Test data to copy to installed package
+    - {{ import }}/testdata
 
   imports:
     - {{ import }}
@@ -45,7 +50,10 @@ test:
   commands:
     - pip check
     - {{ entrypoint }} --help
-    - python -b -X dev -m unittest -v {{ import }}.tests
+    # Copy the testdata into the expected place, sincei it isn't normally installed with the package
+    - cp -r $SRC_DIR/{{ import }}/testdata $(python -c 'from pathlib import Path; import {{ import }}; print(Path({{ import }}.__file__).parent)')/testdata
+    # Run with Pytest instead of Unittest to skip a test that fails when installed, fixed in Pyroma 4.1
+    - python -b -X dev -m pytest -vv -r a -k "not only_config" --color=yes --pyargs {{ import }}.tests
 
 about:
   home: https://github.com/regebro/pyroma/
