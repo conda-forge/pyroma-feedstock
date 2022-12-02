@@ -35,11 +35,17 @@ requirements:
     - wheel
 
 test:
+  requires:
+    - pip
+    - setuptools >=60
+
   imports:
     - {{ import }}
 
   commands:
+    - pip check
     - {{ entrypoint }} --help
+    - python -b -X dev -m unittest -v {{ import }}.tests
 
 about:
   home: https://github.com/regebro/pyroma/
