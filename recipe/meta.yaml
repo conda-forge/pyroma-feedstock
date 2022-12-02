@@ -1,8 +1,8 @@
 {% set name = "pyroma" %}
 {% set import = "pyroma" %}
 {% set entrypoint = "pyroma" %}
-{% set version = "2.4" %}
-{% set sha256 = "94a11cb077976bff9bd37ac8b487902556f216c4ee90b74a2344367f73b6ee7f" %}
+{% set version = "4.0" %}
+{% set sha256 = "b41ed0e080fb3aa9a7b8359d0ce7af39bc9b59cb9e7d696c6521f525257cc128" %}
 
 package:
   name: {{ name|lower }}
@@ -16,19 +16,23 @@ build:
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  preserve_egg_dir: True  # Possibly required due to legacy Setuptools usage?
   entry_points:
     - {{ entrypoint }} = {{ import }}:main
 
 requirements:
   build:
-    - python
+    - python >=3.7
     - pip
 
   run:
-    - python
-    - setuptools
     - docutils
+    - pep517
+    - pygments
+    - python >=3.7
+    - python-build
+    - requests
+    - setuptools
+    - wheel
 
 test:
   imports:
@@ -38,7 +42,7 @@ test:
     - {{ entrypoint }} --help
 
 about:
-  home: https://bitbucket.org/regebro/pyroma
+  home: https://github.com/regebro/pyroma/
   license: MIT
   license_file: LICENSE.txt
   summary: "Test your project's packaging friendliness"
