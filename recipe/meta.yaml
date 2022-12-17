@@ -1,8 +1,8 @@
 {% set name = "pyroma" %}
 {% set import = "pyroma" %}
 {% set entrypoint = "pyroma" %}
-{% set version = "4.0" %}
-{% set sha256 = "b41ed0e080fb3aa9a7b8359d0ce7af39bc9b59cb9e7d696c6521f525257cc128" %}
+{% set version = "4.1" %}
+{% set sha256 = "ff87335abce04efef0749ee63f2a4dbb9a3fa5a1eee285beaaaed65059dca89a" %}
 
 package:
   name: {{ name|lower }}
@@ -20,7 +20,7 @@ build:
     - {{ entrypoint }} = {{ import }}:main
 
 requirements:
-  build:
+  host:
     - python >=3.7
     - pip
 
@@ -59,7 +59,7 @@ about:
   home: https://github.com/regebro/pyroma/
   license: MIT
   license_file: LICENSE.txt
-  summary: "Test your project's packaging friendliness"
+  summary: Test your project's packaging friendliness
 
 extra:
   recipe-maintainers:
