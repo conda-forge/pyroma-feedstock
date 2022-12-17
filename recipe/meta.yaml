@@ -1,43 +1,62 @@
 {% set name = "pyroma" %}
-{% set version = "2.4" %}
-{% set sha256 = "94a11cb077976bff9bd37ac8b487902556f216c4ee90b74a2344367f73b6ee7f" %}
+{% set import = "pyroma" %}
+{% set entrypoint = "pyroma" %}
+{% set version = "4.0" %}
+{% set sha256 = "b41ed0e080fb3aa9a7b8359d0ce7af39bc9b59cb9e7d696c6521f525257cc128" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
-  preserve_egg_dir: True
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - pyroma = pyroma:main
+    - {{ entrypoint }} = {{ import }}:main
 
 requirements:
   build:
-    - python
+    - python >=3.7
     - pip
 
   run:
-    - python
-    - setuptools
     - docutils
+    - pep517
+    - pygments
+    - python >=3.7
+    - python-build
+    - requests
+    - setuptools
+    - wheel
 
 test:
+  requires:
+    - pip
+    - pytest
+    - setuptools >=60
+
+  source_files:
+    # Test data to copy to installed package
+    - {{ import }}/testdata
+
   imports:
-    - pyroma
+    - {{ import }}
 
   commands:
-    - pyroma --help
+    - pip check
+    - {{ entrypoint }} --help
+    # Copy the testdata into the expected place, sincei it isn't normally installed with the package
+    - cp -r $SRC_DIR/{{ import }}/testdata $(python -c 'from pathlib import Path; import {{ import }}; print(Path({{ import }}.__file__).parent)')/testdata
+    # Run with Pytest instead of Unittest to skip a test that fails when installed, fixed in Pyroma 4.1
+    - python -b -X dev -m pytest -vv -r a -k "not only_config" --color=yes --pyargs {{ import }}.tests
 
 about:
-  home: https://bitbucket.org/regebro/pyroma
+  home: https://github.com/regebro/pyroma/
   license: MIT
   license_file: LICENSE.txt
   summary: "Test your project's packaging friendliness"
