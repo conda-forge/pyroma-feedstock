@@ -26,16 +26,18 @@ requirements:
 
   run:
     - docutils
+    - packaging
     - pep517
-    - pygments
+    - pygments  # Required internally by docutils for readme check to work
     - python >=3.7
     - python-build
     - requests
-    - setuptools
-    - wheel
+    - setuptools >=61.0.0
+    - trove-classifiers >=2022.6.26
 
 test:
   requires:
+    - flit >=3.4
     - pip
     - pytest
     - setuptools >=60
