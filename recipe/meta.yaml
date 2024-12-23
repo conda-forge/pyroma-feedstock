@@ -9,11 +9,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -21,14 +21,14 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
 
   run:
     - docutils
     - packaging
     - pygments  # Required internally by docutils for readme check to work
-    - python >=3.7
+    - python >={{ python_min }}
     - python-build >=0.7.0
     - requests
     - setuptools >=42
@@ -38,6 +38,7 @@ test:
   requires:
     - pip >=21  # For pip check
     - setuptools >=60
+    - python {{ python_min }}
 
   source_files:
     # Test data to copy to installed package
