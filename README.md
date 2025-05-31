@@ -9,6 +9,15 @@ Package license: MIT
 
 Summary: Test your project's packaging friendliness
 
+Development: https://github.com/regebro/pyroma
+
+Documentation: https://github.com/regebro/pyroma/blob/master/README.rst
+
+Pyroma rhymes with aroma, and is a product aimed at giving a rating of how well a Python project complies with the best practices of the Python packaging ecosystem, primarily PyPI, pip, Distribute etc, as well as a list of issues that could be improved.
+The aim of this is both to help people make a project that is nice and usable, but also to improve the quality of Python third-party software, making it easier and more enjoyable to use the vast array of available modules for Python.
+It’s written so that there are a library with methods to call from Python, as well as a script, also called pyroma.
+
+
 Current build status
 ====================
 
