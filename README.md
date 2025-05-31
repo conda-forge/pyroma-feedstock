@@ -9,6 +9,15 @@ Package license: MIT
 
 Summary: Test your project's packaging friendliness
 
+Development: https://github.com/regebro/pyroma
+
+Documentation: https://github.com/regebro/pyroma/blob/master/README.rst
+
+Pyroma rhymes with aroma, and is a product aimed at giving a rating of how well a Python project complies with the best practices of the Python packaging ecosystem, primarily PyPI, pip, Distribute etc, as well as a list of issues that could be improved.
+The aim of this is both to help people make a project that is nice and usable, but also to improve the quality of Python third-party software, making it easier and more enjoyable to use the vast array of available modules for Python.
+It’s written so that there are a library with methods to call from Python, as well as a script, also called pyroma.
+
+
 Current build status
 ====================
 
@@ -95,7 +104,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance

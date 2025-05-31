@@ -9,26 +9,27 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0]|lower }}/{{ name|lower }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
   noarch: python
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - {{ entrypoint }} = {{ import }}:main
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
+    - setuptools
 
   run:
     - docutils
     - packaging
     - pygments  # Required internally by docutils for readme check to work
-    - python >=3.7
+    - python >={{ python_min }}
     - python-build >=0.7.0
     - requests
     - setuptools >=42
@@ -37,7 +38,8 @@ requirements:
 test:
   requires:
     - pip >=21  # For pip check
-    - setuptools >=60
+    - setuptools >=60,<75.3.2
+    - python {{ python_min }}
 
   source_files:
     # Test data to copy to installed package
@@ -58,6 +60,12 @@ about:
   license: MIT
   license_file: LICENSE.txt
   summary: Test your project's packaging friendliness
+  description: |
+    Pyroma rhymes with aroma, and is a product aimed at giving a rating of how well a Python project complies with the best practices of the Python packaging ecosystem, primarily PyPI, pip, Distribute etc, as well as a list of issues that could be improved.
+    The aim of this is both to help people make a project that is nice and usable, but also to improve the quality of Python third-party software, making it easier and more enjoyable to use the vast array of available modules for Python.
+    It’s written so that there are a library with methods to call from Python, as well as a script, also called pyroma.
+  dev_url: https://github.com/regebro/pyroma
+  doc_url: https://github.com/regebro/pyroma/blob/master/README.rst
 
 extra:
   recipe-maintainers:
