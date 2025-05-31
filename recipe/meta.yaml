@@ -38,7 +38,7 @@ requirements:
 test:
   requires:
     - pip >=21  # For pip check
-    - setuptools >=60
+    - setuptools >=60,<75.3.2
     - python {{ python_min }}
 
   source_files:
