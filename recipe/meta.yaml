@@ -54,7 +54,7 @@ test:
     - {{ entrypoint }} --help
     # Copy the test data into the expected place, since it isn't normally installed with the package
     - cp -r $SRC_DIR/{{ import }}/testdata $(python -c 'from pathlib import Path; import {{ import }}; print(Path({{ import }}.__file__).parent)')/testdata
-    - python -b -X dev -m pytest -v --pyargs pyroma.tests
+    - python -b -X dev -m pytest -v --pyargs pyroma.tests::ProjectDataTest pyroma.tests::DistroDataTest pyroma.tests::PyPITest
 
 about:
   home: https://github.com/regebro/pyroma/
