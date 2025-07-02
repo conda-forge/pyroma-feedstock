@@ -1,8 +1,8 @@
 {% set name = "pyroma" %}
 {% set import = "pyroma" %}
 {% set entrypoint = "pyroma" %}
-{% set version = "4.2" %}
-{% set sha256 = "6c727dc4a7a10e12274faed5fb47ebd499ca0821995befec98e3cfcaf1e7383c" %}
+{% set version = "4.3" %}
+{% set sha256 = "265a3566a43d20a9bce7a5844936cf0d5de937b983d3227112d7d5f9e56d37f1" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - {{ entrypoint }} = {{ import }}:main
@@ -37,9 +37,10 @@ requirements:
 
 test:
   requires:
-    - pip >=21  # For pip check
-    - setuptools >=60,<75.3.2
     - python {{ python_min }}
+    - pip >=21  # For pip check
+    - pytest
+    - setuptools >=60
 
   source_files:
     # Test data to copy to installed package
@@ -51,9 +52,9 @@ test:
   commands:
     - pip check
     - {{ entrypoint }} --help
-    # Copy the testdata into the expected place, sincei it isn't normally installed with the package
+    # Copy the test data into the expected place, since it isn't normally installed with the package
     - cp -r $SRC_DIR/{{ import }}/testdata $(python -c 'from pathlib import Path; import {{ import }}; print(Path({{ import }}.__file__).parent)')/testdata
-    - python -b -X dev -m unittest -v pyroma.tests
+    - python -b -X dev -m pytest -v --pyargs pyroma.tests
 
 about:
   home: https://github.com/regebro/pyroma/
