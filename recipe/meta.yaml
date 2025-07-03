@@ -1,8 +1,8 @@
 {% set name = "pyroma" %}
 {% set import = "pyroma" %}
 {% set entrypoint = "pyroma" %}
-{% set version = "4.3.2" %}
-{% set sha256 = "dec93371c5de6aa48f22e1186e4d86e25f86c0cce0763e695f28f1f64b465c3a" %}
+{% set version = "4.3.3" %}
+{% set sha256 = "62c6af3a8da038e924644dd9c0b5da5f720818c67d914eb48bbfa3ce3d95439b" %}
 
 package:
   name: {{ name|lower }}
