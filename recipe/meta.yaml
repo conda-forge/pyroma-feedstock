@@ -1,8 +1,8 @@
 {% set name = "pyroma" %}
 {% set import = "pyroma" %}
 {% set entrypoint = "pyroma" %}
-{% set version = "4.3.3" %}
-{% set sha256 = "62c6af3a8da038e924644dd9c0b5da5f720818c67d914eb48bbfa3ce3d95439b" %}
+{% set version = "5.0" %}
+{% set sha256 = "20b28f5ad08d2588618ac3a2f0a7ba7a4febe6aa514963e4211cfa6d2ad81eb5" %}
 
 package:
   name: {{ name|lower }}
@@ -21,9 +21,9 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}
     - pip
-    - setuptools
+    - python {{ python_min }}
+    - setuptools >=42
 
   run:
     - docutils
@@ -32,15 +32,16 @@ requirements:
     - python >={{ python_min }}
     - python-build >=0.7.0
     - requests
-    - setuptools >=42
+    - setuptools >=61
     - trove-classifiers >=2022.6.26
 
 test:
   requires:
-    - python {{ python_min }}
+    - flit-core >=3.4,<4
     - pip >=21  # For pip check
+    - python {{ python_min }}
     - pytest
-    - setuptools >=60
+    - setuptools >=61
 
   source_files:
     # Test data to copy to installed package
